@@ -58,7 +58,7 @@ public class AppiumTest {
 
 		try {
 			// Appium 3.x URL (no /wd/hub)
-			URL url = new URL("http://127.0.0.1:4723");
+			URL url = new URL("http://127.0.0.81:4723");
 			driver = new AppiumDriver(url, dc);
 			System.out.println("Application Started...");
 		} catch (MalformedURLException e) {
@@ -184,34 +184,35 @@ public class AppiumTest {
 		}
 	}
 
-	/* CLICK ON PROFILE
-	 * public static void profile() { try { WebDriverWait wait = new
-	 * WebDriverWait(driver, Duration.ofSeconds(10)); WebElement profile =
+	/*
+	 * CLICK ON PROFILE public static void profile() { try { WebDriverWait wait =
+	 * new WebDriverWait(driver, Duration.ofSeconds(10)); WebElement profile =
 	 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
 	 * "(//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/navigation_bar_item_icon_view\"])[5]"
 	 * ))); profile.click(); System.out.println("Profile Clicked"); } catch
 	 * (Exception e) { System.out.println("Profile Not Clicked");
 	 * e.printStackTrace(); } }
 	 */
-	
+
 	public static void threedotbtn() {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-		WebElement threedot = wait.until(ExpectedConditions.elementToBeClickable(By.id("com.rocks.music.videoplayer:id/three_dot")));
-		threedot.click();
-		System.out.println("Three Dot clicked!");
-			
-		}catch(Exception e) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebElement threedot = wait
+					.until(ExpectedConditions.elementToBeClickable(By.id("com.rocks.music.videoplayer:id/three_dot")));
+			threedot.click();
+			System.out.println("Three Dot clicked!");
+
+		} catch (Exception e) {
 			System.out.println("Three Dot Not clicked!");
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	public static void clicksetting() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			WebElement setting = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//android.view.View[@resource-id=\"com.rocks.music.videoplayer:id/action_settings\"]")));
+			WebElement setting = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("//android.view.View[@resource-id=\"com.rocks.music.videoplayer:id/action_settings\"]")));
 			setting.click();
 			System.out.println("Setting Clicked");
 
@@ -301,7 +302,5 @@ public class AppiumTest {
 	 * (Exception e) { System.out.println("Home Backpress Not Clicked!");
 	 * e.printStackTrace(); } }
 	 */
-	
-
 
 }
