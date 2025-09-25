@@ -1,6 +1,10 @@
 package Appium.Appium;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,15 +18,10 @@ import org.openqa.selenium.WebElement;
 
 public class AppiumTest {
 
-	static AppiumDriver driver;
+	static AndroidDriver driver;
 
 	public static void main(String[] args) {
 		openVideoplayer();
-
-		// Example: perform actions after app launch
-		// driver.findElementById("com.rocks.music.videoplayer:id/buttonLogin").click();
-
-		// Close driver session
 		clickAllowButton();
 		clickAllowButtongiven();
 		clickNextButton();
@@ -39,7 +38,7 @@ public class AppiumTest {
 		notificationScreenOpen();
 		notificationScreenbackbtn();
 		settingbackbtn();
-		HomeBtn();
+		HomeBackbtn();
 		Exitbtn();
 		// Homebackbtn();
 	}
@@ -49,7 +48,7 @@ public class AppiumTest {
 
 		// Appium 3.x compatible capabilities
 		dc.setCapability("appium:deviceName", "POCO M6 Pro 5G");
-		dc.setCapability("appium:udid", "192.168.1.81:5555"); // adb devices
+		dc.setCapability("appium:udid", "192.168.0.62:5555"); // adb devices
 		dc.setCapability("platformName", "Android"); // W3C standard capability
 		dc.setCapability("appium:platformVersion", "15");
 		dc.setCapability("appium:appPackage", "com.rocks.music.videoplayer");
@@ -59,7 +58,7 @@ public class AppiumTest {
 		try {
 			// Appium 3.x URL (no /wd/hub)
 			URL url = new URL("http://127.0.0.81:4723");
-			driver = new AppiumDriver(url, dc);
+			driver = new AndroidDriver(url, dc);
 			System.out.println("Application Started...");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -262,13 +261,10 @@ public class AppiumTest {
 		}
 	}
 
-	public static void HomeBtn() {
+	public static void HomeBackbtn() {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			WebElement homebtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"(//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/navigation_bar_item_icon_view\"])[1]")));
-			homebtn.click();
-			System.out.println("Home Clicked");
+			driver.pressKey(new KeyEvent(AndroidKey.BACK));
+			System.out.println("Home Back Button Clicked");
 		} catch (Exception e) {
 			System.out.println("Home Not Clicked");
 			e.printStackTrace();
@@ -292,15 +288,5 @@ public class AppiumTest {
 			e.printStackTrace();
 		}
 	}
-
-	/*
-	 * public static void Homebackbtn() { try { WebDriverWait wait = new
-	 * WebDriverWait(driver, Duration.ofSeconds(10)); WebElement homeback =
-	 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-	 * "// androidx.drawerlayout.widget.DrawerLayout[@resource-id=\"com.rocks.music.videoplayer:id/drawer_layout\"]/android.widget.FrameLayout"
-	 * ))); homeback.click(); System.out.println("Home Backpress Clicked!"); } catch
-	 * (Exception e) { System.out.println("Home Backpress Not Clicked!");
-	 * e.printStackTrace(); } }
-	 */
 
 }
