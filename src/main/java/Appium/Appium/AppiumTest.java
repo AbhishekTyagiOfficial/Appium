@@ -47,8 +47,12 @@ public class AppiumTest {
 		DesiredCapabilities dc = new DesiredCapabilities();
 
 		// Appium 3.x compatible capabilities
-		dc.setCapability("appium:deviceName", "POCO M6 Pro 5G");
-		dc.setCapability("appium:udid", "192.168.0.62:5555"); // adb devices
+		// If Device connected through the Wifi.
+		/*	
+			dc.setCapability("appium:deviceName", "POCO M6 Pro 5G");
+			dc.setCapability("appium:udid", "192.168.0.62:5555"); // adb devices
+		*/
+		dc.setCapability("appium:deviceName", "ffac23575ec0");
 		dc.setCapability("platformName", "Android"); // W3C standard capability
 		dc.setCapability("appium:platformVersion", "15");
 		dc.setCapability("appium:appPackage", "com.rocks.music.videoplayer");

@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
 public class openVideo {
@@ -19,8 +20,9 @@ public class openVideo {
 		videoplayer();
 
 		AppiumTest.driver = driver; // isse AppiumTest ke static methods same driver use karenge.
-		//AndroidSystemButtons asb = new AndroidSystemButtons(driver); // Create instance
-		
+		//AndroidSystemButtons.driver = driver;
+		AndroidSystemButtons asb = new AndroidSystemButtons(driver); // Create
+		// instance
 		AppiumTest.clickAllowButton();
 		AppiumTest.clickAllowButtongiven();
 		AppiumTest.clickNextButton();
@@ -34,7 +36,10 @@ public class openVideo {
 		videoplayerscreenbaackbtn();
 		AppiumTest.clickDocumentBackbtn();
 		AppiumTest.handleRatingOrNotification();
-		AndroidSystemButtons.pressBack();
+		profile();
+		Setting();
+		asb.pressBack();
+		asb.pressBack();
 		AppiumTest.Exitbtn();
 
 	}
@@ -42,8 +47,13 @@ public class openVideo {
 	public static void videoplayer() {
 		DesiredCapabilities dc = new DesiredCapabilities();
 
-		dc.setCapability("appium:deviceName", "POCO M6 Pro 5G");
-		dc.setCapability("appium:udid", "192.168.0.62:5555");
+		// If Device connected through the Wifi.
+		/*
+		 * dc.setCapability("appium:deviceName", "POCO M6 Pro 5G");
+		 * dc.setCapability("appium:udid", "192.168.0.62:5555"); // adb devices
+		 */
+		dc.setCapability("appium:deviceName", "ffac23575ec0");
+		dc.setCapability("platformName", "Android"); // W3C standard capability
 		dc.setCapability("platformName", "Android");
 		dc.setCapability("appium:platformVersion", "15");
 		dc.setCapability("appium:appPackage", "com.rocks.music.videoplayer");
@@ -51,7 +61,8 @@ public class openVideo {
 		dc.setCapability("appium:automationName", "UiAutomator2");
 
 		try {
-			URL url = new URL("http://127.0.0.81:4723");
+//			URL url = new URL("http://127.0.0.81:4723");  
+			URL url = new URL("http://127.0.0.1:4723");	// If we connected device from USB. 
 			driver = new AndroidDriver(url, dc);
 			System.out.println("Application Started...");
 		} catch (Exception e) {
@@ -142,6 +153,33 @@ public class openVideo {
 			System.out.println("Video Player Screen Back Press Clicked!");
 		} catch (Exception e) {
 			System.out.println("Video Player Screen Back Press Not Clicked!");
+			e.printStackTrace();
+		}
+	}
+
+	public static void profile() {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebElement profile = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+					"(//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/navigation_bar_item_icon_view\"])[5]\r\n"
+							+ "")));
+			profile.click();
+			System.out.println("Profile Clicked");
+		} catch (Exception e) {
+			System.out.println("Profile Not Clicked");
+			e.printStackTrace();
+		}
+	}
+
+	public static void Setting() {
+		try {
+			WebElement element = driver
+					.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"
+							+ ".scrollIntoView(new UiSelector().resourceId(\"com.rocks.music.videoplayer:id/setting_text\"))"));
+			element.click();
+			System.out.println("Settings Clicked");
+		} catch (Exception e) {
+			System.out.println("Settings Not Clicked");
 			e.printStackTrace();
 		}
 	}
