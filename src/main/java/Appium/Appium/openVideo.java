@@ -54,7 +54,6 @@ public class openVideo {
 		 */
 		dc.setCapability("appium:deviceName", "ffac23575ec0");
 		dc.setCapability("platformName", "Android"); // W3C standard capability
-		dc.setCapability("platformName", "Android");
 		dc.setCapability("appium:platformVersion", "15");
 		dc.setCapability("appium:appPackage", "com.rocks.music.videoplayer");
 		dc.setCapability("appium:appActivity", "com.rocks.music.videoplayer.Splash");
