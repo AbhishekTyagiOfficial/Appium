@@ -74,7 +74,7 @@ public class openVideo {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			WebElement openvideo = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"(//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/thumbnailimageView1\"])[2]")));
+					"(//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/thumbnailimageView1\"])[1]")));
 			openvideo.click();
 			System.out.println("Video Clicked!");
 		} catch (Exception e) {
