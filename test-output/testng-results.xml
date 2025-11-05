@@ -2,92 +2,92 @@
 <testng-results ignored="0" total="19" passed="19" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-06T15:24:32 IST" name="Default suite" finished-at="2025-10-06T15:25:37 IST" duration-ms="64645">
+  <suite started-at="2025-11-05T10:08:37 IST" name="Default suite" finished-at="2025-11-05T10:09:48 IST" duration-ms="71542">
     <groups>
     </groups>
-    <test started-at="2025-10-06T15:24:32 IST" name="Default test" finished-at="2025-10-06T15:25:37 IST" duration-ms="64645">
+    <test started-at="2025-11-05T10:08:37 IST" name="Default test" finished-at="2025-11-05T10:09:48 IST" duration-ms="71542">
       <class name="tests.BaseClass">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:32 IST" name="setup" finished-at="2025-10-06T15:24:38 IST" duration-ms="5595" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:37 IST" name="setup" finished-at="2025-11-05T10:08:42 IST" duration-ms="5258" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="clickAllowButton()[pri:1, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:38 IST" name="clickAllowButton" finished-at="2025-10-06T15:24:42 IST" duration-ms="4199" status="PASS">
+        <test-method signature="clickAllowButton()[pri:1, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:42 IST" name="clickAllowButton" finished-at="2025-11-05T10:08:47 IST" duration-ms="4370" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickAllowButton -->
-        <test-method signature="clickAllowButtongiven()[pri:2, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:42 IST" name="clickAllowButtongiven" finished-at="2025-10-06T15:24:43 IST" duration-ms="1565" status="PASS">
+        <test-method signature="clickAllowButtongiven()[pri:2, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:47 IST" name="clickAllowButtongiven" finished-at="2025-11-05T10:08:48 IST" duration-ms="1354" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickAllowButtongiven -->
-        <test-method signature="clickNextButton()[pri:3, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:43 IST" name="clickNextButton" finished-at="2025-10-06T15:24:50 IST" duration-ms="7142" status="PASS">
+        <test-method signature="clickNextButton()[pri:3, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:48 IST" name="clickNextButton" finished-at="2025-11-05T10:08:56 IST" duration-ms="8324" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickNextButton -->
-        <test-method signature="clickDocumentHome()[pri:4, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:50 IST" name="clickDocumentHome" finished-at="2025-10-06T15:24:53 IST" duration-ms="2934" status="PASS">
+        <test-method signature="clickDocumentHome()[pri:4, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:56 IST" name="clickDocumentHome" finished-at="2025-11-05T10:08:58 IST" duration-ms="1859" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickDocumentHome -->
-        <test-method signature="openvideo()[pri:5, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:53 IST" name="openvideo" finished-at="2025-10-06T15:24:55 IST" duration-ms="1583" status="PASS">
+        <test-method signature="openvideo()[pri:5, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:58 IST" name="openvideo" finished-at="2025-11-05T10:09:05 IST" duration-ms="6683" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openvideo -->
-        <test-method signature="clicktutorial()[pri:6, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:55 IST" name="clicktutorial" finished-at="2025-10-06T15:24:59 IST" duration-ms="3650" status="PASS">
+        <test-method signature="clicktutorial()[pri:6, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:05 IST" name="clicktutorial" finished-at="2025-11-05T10:09:09 IST" duration-ms="4207" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clicktutorial -->
-        <test-method signature="controllerEnable()[pri:7, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:59 IST" name="controllerEnable" finished-at="2025-10-06T15:24:59 IST" duration-ms="594" status="PASS">
+        <test-method signature="controllerEnable()[pri:7, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:09 IST" name="controllerEnable" finished-at="2025-11-05T10:09:10 IST" duration-ms="1017" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- controllerEnable -->
-        <test-method signature="playandpausevideo()[pri:8, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:24:59 IST" name="playandpausevideo" finished-at="2025-10-06T15:25:01 IST" duration-ms="2198" status="PASS">
+        <test-method signature="playandpausevideo()[pri:8, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:10 IST" name="playandpausevideo" finished-at="2025-11-05T10:09:13 IST" duration-ms="2921" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- playandpausevideo -->
-        <test-method signature="takescreenShot()[pri:9, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:01 IST" name="takescreenShot" finished-at="2025-10-06T15:25:03 IST" duration-ms="1173" status="PASS">
+        <test-method signature="takescreenShot()[pri:9, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:13 IST" name="takescreenShot" finished-at="2025-11-05T10:09:14 IST" duration-ms="768" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takescreenShot -->
-        <test-method signature="controllerEnable1()[pri:10, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:03 IST" name="controllerEnable1" finished-at="2025-10-06T15:25:04 IST" duration-ms="1798" status="PASS">
+        <test-method signature="controllerEnable1()[pri:10, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:14 IST" name="controllerEnable1" finished-at="2025-11-05T10:09:16 IST" duration-ms="2261" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- controllerEnable1 -->
-        <test-method signature="videoplayerscreenbaackbtn()[pri:11, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:04 IST" name="videoplayerscreenbaackbtn" finished-at="2025-10-06T15:25:06 IST" duration-ms="1929" status="PASS">
+        <test-method signature="videoplayerscreenbaackbtn()[pri:11, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:16 IST" name="videoplayerscreenbaackbtn" finished-at="2025-11-05T10:09:18 IST" duration-ms="1639" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- videoplayerscreenbaackbtn -->
-        <test-method signature="clickDocumentBackbtn()[pri:12, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:06 IST" name="clickDocumentBackbtn" finished-at="2025-10-06T15:25:08 IST" duration-ms="1408" status="PASS">
+        <test-method signature="clickDocumentBackbtn()[pri:12, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:18 IST" name="clickDocumentBackbtn" finished-at="2025-11-05T10:09:19 IST" duration-ms="1591" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickDocumentBackbtn -->
-        <test-method signature="handleRatingOrNotification()[pri:13, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:08 IST" name="handleRatingOrNotification" finished-at="2025-10-06T15:25:09 IST" duration-ms="1683" status="PASS">
+        <test-method signature="handleRatingOrNotification()[pri:13, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:19 IST" name="handleRatingOrNotification" finished-at="2025-11-05T10:09:21 IST" duration-ms="1915" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- handleRatingOrNotification -->
-        <test-method signature="clicknotificationPermission()[pri:14, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:09 IST" name="clicknotificationPermission" finished-at="2025-10-06T15:25:12 IST" duration-ms="2400" status="PASS">
+        <test-method signature="clicknotificationPermission()[pri:14, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:21 IST" name="clicknotificationPermission" finished-at="2025-11-05T10:09:25 IST" duration-ms="3820" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clicknotificationPermission -->
-        <test-method signature="allowNotificationPermission()[pri:15, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:12 IST" name="allowNotificationPermission" finished-at="2025-10-06T15:25:23 IST" duration-ms="11111" status="PASS">
+        <test-method signature="allowNotificationPermission()[pri:15, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:25 IST" name="allowNotificationPermission" finished-at="2025-11-05T10:09:36 IST" duration-ms="10754" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- allowNotificationPermission -->
-        <test-method signature="profile()[pri:16, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:23 IST" name="profile" finished-at="2025-10-06T15:25:24 IST" duration-ms="1451" status="PASS">
+        <test-method signature="profile()[pri:16, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:36 IST" name="profile" finished-at="2025-11-05T10:09:37 IST" duration-ms="1736" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- profile -->
-        <test-method signature="Setting()[pri:17, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:24 IST" name="Setting" finished-at="2025-10-06T15:25:30 IST" duration-ms="5975" status="PASS">
+        <test-method signature="Setting()[pri:17, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:37 IST" name="Setting" finished-at="2025-11-05T10:09:43 IST" duration-ms="5699" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setting -->
-        <test-method signature="pressBack()[pri:18, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:30 IST" name="pressBack" finished-at="2025-10-06T15:25:36 IST" duration-ms="5816" status="PASS">
+        <test-method signature="pressBack()[pri:18, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:43 IST" name="pressBack" finished-at="2025-11-05T10:09:48 IST" duration-ms="4975" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pressBack -->
-        <test-method signature="Exitbtn()[pri:19, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:36 IST" name="Exitbtn" finished-at="2025-10-06T15:25:37 IST" duration-ms="354" status="PASS">
+        <test-method signature="Exitbtn()[pri:19, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:48 IST" name="Exitbtn" finished-at="2025-11-05T10:09:48 IST" duration-ms="308" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Exitbtn -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.BaseClass@367ffa75]" started-at="2025-10-06T15:25:37 IST" name="teardown" finished-at="2025-10-06T15:25:37 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:48 IST" name="teardown" finished-at="2025-11-05T10:09:48 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

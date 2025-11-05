@@ -1,5 +1,14 @@
 package Appium.Appium;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -52,4 +61,34 @@ public class AndroidSystemButtons {
 	public void openNotifications() {
 		driver.openNotifications();
 	}
+	
+	// ✅ Sound player method
+	public void sound() {
+			try {
+				File soundFile = new File("src/test/resources/sounds/shabash-beta.wav");
+
+				if (!soundFile.exists()) {
+					System.out.println("⚠️ Sound file not found at: " + soundFile.getAbsolutePath());
+					return;
+				}
+
+				AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+				Clip clip = AudioSystem.getClip();
+				clip.open(audioStream);
+				clip.start();
+				System.out.println("🔊 Sound Played Successfully!");
+
+				// Wait for sound to complete
+				Thread.sleep(clip.getMicrosecondLength() / 1000);
+
+				// Close everything
+				clip.close();
+				audioStream.close();
+
+			} catch (UnsupportedAudioFileException e) {
+				System.out.println("❌ Unsupported file type! Please use a .wav file.");
+			} catch (IOException | LineUnavailableException | InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 }

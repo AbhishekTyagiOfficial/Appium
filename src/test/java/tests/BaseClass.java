@@ -1,8 +1,16 @@
 package tests;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.List;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,8 +27,8 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class BaseClass {
-	
-	 AndroidDriver driver;
+
+	AndroidDriver driver;
 
 	@BeforeTest
 	public void setup() {
@@ -40,14 +48,14 @@ public class BaseClass {
 
 		try {
 //			URL url = new URL("http://127.0.0.81:4723");  
-			URL url = new URL("http://127.0.0.1:4723");	// If we connected device from USB. 
+			URL url = new URL("http://127.0.0.1:4723"); // If we connected device from USB.
 			driver = new AndroidDriver(url, dc);
 			System.out.println("Application TestNG Started...");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(priority = 1)
 	public void clickAllowButton() {
 		try {
@@ -62,7 +70,7 @@ public class BaseClass {
 	}
 
 	@Test(priority = 2)
-	public  void clickAllowButtongiven() {
+	public void clickAllowButtongiven() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait.until(ExpectedConditions
@@ -76,7 +84,7 @@ public class BaseClass {
 	}
 
 	@Test(priority = 3)
-	public  void clickNextButton() {
+	public void clickNextButton() {
 		try {
 
 			for (int i = 1; i <= 3; i++) {
@@ -87,14 +95,25 @@ public class BaseClass {
 				System.out.println("Next button clicked!" + i);
 				Thread.sleep(500);
 			}
+
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+			WebElement updatesheet = wait.until(
+					ExpectedConditions.elementToBeClickable(AppiumBy.id("com.rocks.music.videoplayer:id/crossSheet")));
+			if (updatesheet.isDisplayed()) {
+				updatesheet.click();
+				System.out.println("Update Bottom sheet Clicked!");
+			} else {
+				System.out.println("Update Bottom sheet Not & visible Clicked!");
+			}
+
 		} catch (Exception e) {
 			System.out.println("Allow button not found or already clicked.");
 			e.printStackTrace();
 		}
 	}
-	
-	@Test(priority =4)
-	public  void clickDocumentHome() {
+
+	@Test(priority = 4)
+	public void clickDocumentHome() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
@@ -106,9 +125,9 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(priority = 5)
-	public  void openvideo() {
+	public void openvideo() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			WebElement openvideo = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
@@ -120,9 +139,9 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(priority = 6)
-	public  void clicktutorial() {
+	public void clicktutorial() {
 		try {
 			for (int i = 1; i <= 2; i++) {
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -137,7 +156,7 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(priority = 7)
 	public void controllerEnable() {
 		try {
@@ -151,7 +170,7 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(priority = 8)
 	public void playandpausevideo() {
 		for (int i = 1; i <= 2; i++) {
@@ -184,7 +203,7 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(priority = 10)
 	public void controllerEnable1() {
 		try {
@@ -212,6 +231,7 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
+
 	@Test(priority = 12)
 	public void clickDocumentBackbtn() {
 		try {
@@ -226,6 +246,7 @@ public class BaseClass {
 		}
 
 	}
+
 	@Test(priority = 13)
 	public void handleRatingOrNotification() {
 		try {
@@ -276,8 +297,7 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@Test(priority = 16)
 	public void profile() {
 		try {
@@ -293,7 +313,6 @@ public class BaseClass {
 		}
 	}
 
-	
 	@Test(priority = 17)
 	public void Setting() {
 		try {
@@ -307,17 +326,48 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
+
 	@Test(priority = 18)
 	public void pressBack() throws InterruptedException {
-		for(int i=1; i<=2; i++) {
-			
+		for (int i = 1; i <= 2; i++) {
+
 			driver.pressKey(new KeyEvent(AndroidKey.BACK));
 			Thread.sleep(2000);
 		}
 	}
-	
-	
+
+	// ✅ Sound player method
 	@Test(priority = 19)
+	public void sound() {
+		try {
+			File soundFile = new File("src/test/resources/sounds/shabash-beta.wav");
+
+			if (!soundFile.exists()) {
+				System.out.println("⚠️ Sound file not found at: " + soundFile.getAbsolutePath());
+				return;
+			}
+
+			AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioStream);
+			clip.start();
+			System.out.println("🔊 Sound Played Successfully!");
+
+			// Wait for sound to complete
+			Thread.sleep(clip.getMicrosecondLength() / 1000);
+
+			// Close everything
+			clip.close();
+			audioStream.close();
+
+		} catch (UnsupportedAudioFileException e) {
+			System.out.println("❌ Unsupported file type! Please use a .wav file.");
+		} catch (IOException | LineUnavailableException | InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test(priority = 20)
 	public void Exitbtn() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -335,10 +385,9 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@AfterTest
 	public void teardown() {
-		
+
 	}
 }

@@ -1,6 +1,6 @@
 package Appium.Appium;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -58,6 +58,9 @@ public class AppiumTest {
 		dc.setCapability("appium:appPackage", "com.rocks.music.videoplayer");
 		dc.setCapability("appium:appActivity", "com.rocks.music.videoplayer.Splash");
 		dc.setCapability("appium:automationName", "UiAutomator2");
+		//dc.setCapability("appium:noReset", true);
+		//dc.setCapability("appium:autoGrantPermissions", true);
+		// fullReset remove kijiye for now
 
 		try {
 			// Appium 3.x URL (no /wd/hub)
@@ -100,12 +103,24 @@ public class AppiumTest {
 
 			for (int i = 1; i <= 3; i++) {
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-				wait.until(ExpectedConditions.elementToBeClickable(By.id("com.rocks.music.videoplayer:id/btn_next")));
+				WebElement nextbtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("com.rocks.music.videoplayer:id/btn_next")));
 
-				driver.findElement(By.id("com.rocks.music.videoplayer:id/btn_next")).click();
+				//driver.findElement(By.id("com.rocks.music.videoplayer:id/btn_next")).click();
+				nextbtn.click();
 				System.out.println("Next button clicked!" + i);
 				Thread.sleep(500);
 			}
+			
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    		WebElement updatesheet = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.id("com.rocks.music.videoplayer:id/crossSheet")));
+    		
+    		if (updatesheet.isDisplayed()) {
+    			updatesheet.click();
+    			System.out.println("Update Bottom sheet Clicked!");
+    		}else {
+    			System.out.println("Update Bottom sheet Not & visible Clicked!");
+    		}
+    		
 		} catch (Exception e) {
 			System.out.println("Allow button not found or already clicked.");
 			e.printStackTrace();

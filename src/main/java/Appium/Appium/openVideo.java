@@ -1,6 +1,9 @@
 package Appium.Appium;
 
 import java.net.URL;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -20,9 +23,8 @@ public class openVideo {
 		videoplayer();
 
 		AppiumTest.driver = driver; // isse AppiumTest ke static methods same driver use karenge.
-		//AndroidSystemButtons.driver = driver;
-		AndroidSystemButtons asb = new AndroidSystemButtons(driver); // Create
-		// instance
+		AndroidSystemButtons asb = new AndroidSystemButtons(driver); // Create instance
+
 		AppiumTest.clickAllowButton();
 		AppiumTest.clickAllowButtongiven();
 		AppiumTest.clickNextButton();
@@ -40,34 +42,31 @@ public class openVideo {
 		Setting();
 		asb.pressBack();
 		asb.pressBack();
-		AppiumTest.Exitbtn();
 
+		// ✅ Play sound at the very end
+		asb.sound();
+
+		AppiumTest.Exitbtn();
 	}
 
+	// ✅ Launch Appium session
 	public static void videoplayer() {
 		DesiredCapabilities dc = new DesiredCapabilities();
-
-		// If Device connected through the Wifi.
-		/*
-		 * dc.setCapability("appium:deviceName", "POCO M6 Pro 5G");
-		 * dc.setCapability("appium:udid", "192.168.0.62:5555"); // adb devices
-		 */
-		dc.setCapability("appium:deviceName", "ffac23575ec0");
-		dc.setCapability("platformName", "Android"); // W3C standard capability
+		dc.setCapability("appium:deviceName", "ffac23575ec0a");
+		dc.setCapability("platformName", "Android");
 		dc.setCapability("appium:platformVersion", "15");
 		dc.setCapability("appium:appPackage", "com.rocks.music.videoplayer");
 		dc.setCapability("appium:appActivity", "com.rocks.music.videoplayer.Splash");
 		dc.setCapability("appium:automationName", "UiAutomator2");
+		// dc.setCapability("appium:noReset", true);
 
 		try {
-//			URL url = new URL("http://127.0.0.81:4723");  
-			URL url = new URL("http://127.0.0.1:4723");	// If we connected device from USB. 
+			URL url = new URL("http://127.0.0.1:4723");
 			driver = new AndroidDriver(url, dc);
 			System.out.println("Application Started...");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public static void openvideo() {
@@ -113,20 +112,95 @@ public class openVideo {
 	}
 
 	public static void playandpausevideo() {
-		for (int i = 1; i <= 2; i++) {
-			try {
+		// for (int i = 1; i <= 2; i++) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebElement playandpause = wait.until(ExpectedConditions
+					.elementToBeClickable(By.id("com.rocks.music.videoplayer:id/media_controller_pause")));
+			playandpause.click();
+			System.out.println("Play/Pause Clicked!");
 
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-				WebElement playandpause = wait.until(ExpectedConditions
-						.elementToBeClickable(By.id("com.rocks.music.videoplayer:id/media_controller_pause")));
-				playandpause.click();
-				System.out.println("Play/Pause Clicked!" + i);
+			// Rptate Screen
+			WebElement rotate = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath(
+					"//android.widget.LinearLayout[@resource-id=\"com.rocks.music.videoplayer:id/top_button_holder\"]/android.widget.LinearLayout[1]/android.widget.ImageButton")));
+			for (int i = 1; i <= 2; i++) {
+				rotate.click();
+				Thread.sleep(2000);
 			}
 
-			catch (Exception e) {
-				System.out.println("Play/Pause Not Clicked!");
+			// More Option
+			WebElement morebtn = wait.until(ExpectedConditions
+					.elementToBeClickable(AppiumBy.xpath("//android.widget.Button[@content-desc=\"More Options\"]")));
+			morebtn.click();
+			System.out.println("More Clicked");
+			Thread.sleep(2000);
+
+			// Equalizer
+			WebElement equalizer = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath(
+					"//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/optionEqualizer\"]")));
+			equalizer.click();
+			System.out.println("Equalizer Clicked");
+			Thread.sleep(2000);
+
+			// Equalizer Enable
+			WebElement equalizerEnable = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath(
+					"//android.widget.Switch[@resource-id=\"com.rocks.music.videoplayer:id/checkBoxCustomized\"]")));
+			equalizerEnable.click();
+			System.out.println("Equalizer Enable Clicked");
+			Thread.sleep(2000);
+
+			// Equalizer Cancel
+			WebElement equalizerCancel = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy
+					.xpath("//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/cancel\"]")));
+			equalizerCancel.click();
+			System.out.println("Equalizer Cancel Clicked");
+			Thread.sleep(2000);
+
+			// Controller Invoke
+			controllerEnable();
+			
+			
+			// Loop < Repeat Enable
+			try {
+				WebElement morebtn1 = wait.until(ExpectedConditions
+						.elementToBeClickable(AppiumBy.xpath("//android.widget.Button[@content-desc=\"More Options\"]")));
+				morebtn1.click();
+				System.out.println("More Clicked");
+				Thread.sleep(2000);
+				
+				WebElement element = driver
+						.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"
+								+ ".scrollIntoView(new UiSelector().resourceId(\"com.rocks.music.videoplayer:id/optionRepeatOneIcon\"))"));
+				element.click();
+				System.out.println("Repeat Clicked");
+			} catch (Exception e) {
+				System.out.println("Repeat Not Clicked");
 				e.printStackTrace();
 			}
+
+			// More Cancel
+			WebElement moreCancel = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy
+					.xpath("//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/cancel\"]")));
+			moreCancel.click();
+			System.out.println("More Button Cancel Clicked");
+			Thread.sleep(2000);
+
+			// Controller Invoke
+			controllerEnable();
+
+//				// Background Play
+//				WebElement bp = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath("//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/optionPlayBg\"]")));
+//				bp.click();
+//				Thread.sleep(2000);
+
+			WebElement playandpause1 = wait.until(ExpectedConditions
+					.elementToBeClickable(By.id("com.rocks.music.videoplayer:id/media_controller_pause")));
+			playandpause1.click();
+			System.out.println("Play Button Clicked");
+
+		} catch (Exception e) {
+			System.out.println("Play/Pause Not Clicked!");
+			e.printStackTrace();
 		}
 	}
 
@@ -160,8 +234,7 @@ public class openVideo {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			WebElement profile = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"(//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/navigation_bar_item_icon_view\"])[5]\r\n"
-							+ "")));
+					"(//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/navigation_bar_item_icon_view\"])[5]")));
 			profile.click();
 			System.out.println("Profile Clicked");
 		} catch (Exception e) {
