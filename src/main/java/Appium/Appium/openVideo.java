@@ -24,7 +24,7 @@ public class openVideo {
 
 		AppiumTest.driver = driver; // isse AppiumTest ke static methods same driver use karenge.
 		AndroidSystemButtons asb = new AndroidSystemButtons(driver); // Create instance
-
+		asb.chaloBhaiSound();
 		AppiumTest.clickAllowButton();
 		AppiumTest.clickAllowButtongiven();
 		AppiumTest.clickNextButton();
@@ -44,7 +44,7 @@ public class openVideo {
 		asb.pressBack();
 
 		// ✅ Play sound at the very end
-		asb.sound();
+		asb.shabashBetaSound();
 
 		AppiumTest.Exitbtn();
 	}
@@ -158,20 +158,18 @@ public class openVideo {
 
 			// Controller Invoke
 			controllerEnable();
-			
-			
+
 			// Loop < Repeat Enable
 			try {
-				WebElement morebtn1 = wait.until(ExpectedConditions
-						.elementToBeClickable(AppiumBy.xpath("//android.widget.Button[@content-desc=\"More Options\"]")));
+				WebElement morebtn1 = wait.until(ExpectedConditions.elementToBeClickable(
+						AppiumBy.xpath("//android.widget.Button[@content-desc=\"More Options\"]")));
 				morebtn1.click();
 				System.out.println("More Clicked");
 				Thread.sleep(2000);
-				
-				WebElement element = driver
-						.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"
+
+				WebElement repeat = driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"
 								+ ".scrollIntoView(new UiSelector().resourceId(\"com.rocks.music.videoplayer:id/optionRepeatOneIcon\"))"));
-				element.click();
+				repeat.click();
 				System.out.println("Repeat Clicked");
 			} catch (Exception e) {
 				System.out.println("Repeat Not Clicked");
@@ -188,11 +186,13 @@ public class openVideo {
 			// Controller Invoke
 			controllerEnable();
 
-//				// Background Play
-//				WebElement bp = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath("//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/optionPlayBg\"]")));
-//				bp.click();
-//				Thread.sleep(2000);
-
+			/*
+			 * // Background Play WebElement bp =
+			 * wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.xpath(
+			 * "//android.widget.ImageView[@resource-id=\"com.rocks.music.videoplayer:id/optionPlayBg\"]"
+			 * ))); bp.click(); Thread.sleep(2000);
+			 */
+			
 			WebElement playandpause1 = wait.until(ExpectedConditions
 					.elementToBeClickable(By.id("com.rocks.music.videoplayer:id/media_controller_pause")));
 			playandpause1.click();

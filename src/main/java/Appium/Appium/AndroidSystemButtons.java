@@ -63,7 +63,7 @@ public class AndroidSystemButtons {
 	}
 	
 	// ✅ Sound player method
-	public void sound() {
+	public void shabashBetaSound() {
 			try {
 				File soundFile = new File("src/test/resources/sounds/shabash-beta.wav");
 
@@ -91,4 +91,79 @@ public class AndroidSystemButtons {
 				e.printStackTrace();
 			}
 		}
+	
+	public void chaloBhaiSound() {
+		try {
+			File soundFile = new File("src/test/resources/sounds/chalo-bhai.wav");
+			if (!soundFile.exists()) {
+				System.out.println("⚠️ Sound file not found at: " + soundFile.getAbsolutePath());
+				return;
+			}
+			AudioInputStream audioStream1 = AudioSystem.getAudioInputStream(soundFile);
+			Clip clip =  AudioSystem.getClip();
+			clip.open(audioStream1);
+			clip.start();
+			System.out.println("🔊 Sound Played Successfully!");
+			
+			Thread.sleep(clip.getMicrosecondLength() / 1000);
+			
+			clip.close();
+			audioStream1.close();
+			
+		} catch (UnsupportedAudioFileException e) {
+			System.out.println("❌ Unsupported file type! Please use a .wav file.");
+		} catch (IOException | LineUnavailableException |InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void chaliyeSuruKarteHaiSound() {
+		try {
+			File soundFile = new File("src/test/resources/sounds/chaliye-shuru-karte-hai.wav");
+			if (soundFile.exists()) {
+				System.out.println("⚠️ Sound file not found at : " + soundFile.getAbsolutePath());
+				return;
+			}
+			AudioInputStream audioStream2 = AudioSystem.getAudioInputStream(soundFile);
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioStream2);
+			clip.start();
+			
+			Thread.sleep(clip.getMicrosecondLength()/1000);
+			
+			clip.close();
+			audioStream2.close();
+			
+		} catch (UnsupportedAudioFileException e) {
+			System.out.println("❌ Unsupported file type! Please use a .wav file.");
+		} catch (IOException | LineUnavailableException |InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void khtamSound() {
+		try {
+			File soundFile = new File("src/test/resources/sounds/khatam-tata-bye-bye.wav");
+			if (!soundFile.exists()) {
+				System.out.println("⚠️ Sound file not found at : "+ soundFile.getAbsolutePath());
+				return;
+			}
+			
+			AudioInputStream audioStream3 = AudioSystem.getAudioInputStream(soundFile);
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioStream3);
+			clip.start();
+			
+			Thread.sleep(clip.getMicrosecondLength()/1000);
+			
+			clip.close();
+			audioStream3.close();	
+		} catch (IOException | LineUnavailableException | InterruptedException | UnsupportedAudioFileException e) {
+			// TODO Auto-generated catch block
+			System.out.println("❌ Unsupported file type! Please use a .wav file.");
+			e.printStackTrace();
+		}
+	}
 }

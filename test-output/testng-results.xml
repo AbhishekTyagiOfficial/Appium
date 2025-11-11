@@ -1,97 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="19" passed="19" failed="0" skipped="0">
+<testng-results ignored="0" total="16" passed="16" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-05T10:08:37 IST" name="Default suite" finished-at="2025-11-05T10:09:48 IST" duration-ms="71542">
+  <suite started-at="2025-11-07T21:11:19 IST" name="Default suite" finished-at="2025-11-07T21:12:11 IST" duration-ms="52360">
     <groups>
     </groups>
-    <test started-at="2025-11-05T10:08:37 IST" name="Default test" finished-at="2025-11-05T10:09:48 IST" duration-ms="71542">
-      <class name="tests.BaseClass">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:37 IST" name="setup" finished-at="2025-11-05T10:08:42 IST" duration-ms="5258" status="PASS">
+    <test started-at="2025-11-07T21:11:19 IST" name="Default test" finished-at="2025-11-07T21:12:11 IST" duration-ms="52360">
+      <class name="tests.FileManager">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:19 IST" name="setup" finished-at="2025-11-07T21:11:25 IST" duration-ms="6484" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="clickAllowButton()[pri:1, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:42 IST" name="clickAllowButton" finished-at="2025-11-05T10:08:47 IST" duration-ms="4370" status="PASS">
+        <test-method signature="chaliyeSuruKarteHaiSound()[pri:1, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:25 IST" name="chaliyeSuruKarteHaiSound" finished-at="2025-11-07T21:11:29 IST" duration-ms="4445" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- clickAllowButton -->
-        <test-method signature="clickAllowButtongiven()[pri:2, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:47 IST" name="clickAllowButtongiven" finished-at="2025-11-05T10:08:48 IST" duration-ms="1354" status="PASS">
+        </test-method> <!-- chaliyeSuruKarteHaiSound -->
+        <test-method signature="AllowBtn()[pri:2, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:29 IST" name="AllowBtn" finished-at="2025-11-07T21:11:30 IST" duration-ms="796" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- clickAllowButtongiven -->
-        <test-method signature="clickNextButton()[pri:3, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:48 IST" name="clickNextButton" finished-at="2025-11-05T10:08:56 IST" duration-ms="8324" status="PASS">
+        </test-method> <!-- AllowBtn -->
+        <test-method signature="AllFileAccess()[pri:3, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:30 IST" name="AllFileAccess" finished-at="2025-11-07T21:11:33 IST" duration-ms="2254" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- clickNextButton -->
-        <test-method signature="clickDocumentHome()[pri:4, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:56 IST" name="clickDocumentHome" finished-at="2025-11-05T10:08:58 IST" duration-ms="1859" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clickDocumentHome -->
-        <test-method signature="openvideo()[pri:5, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:08:58 IST" name="openvideo" finished-at="2025-11-05T10:09:05 IST" duration-ms="6683" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openvideo -->
-        <test-method signature="clicktutorial()[pri:6, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:05 IST" name="clicktutorial" finished-at="2025-11-05T10:09:09 IST" duration-ms="4207" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clicktutorial -->
-        <test-method signature="controllerEnable()[pri:7, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:09 IST" name="controllerEnable" finished-at="2025-11-05T10:09:10 IST" duration-ms="1017" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- controllerEnable -->
-        <test-method signature="playandpausevideo()[pri:8, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:10 IST" name="playandpausevideo" finished-at="2025-11-05T10:09:13 IST" duration-ms="2921" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- playandpausevideo -->
-        <test-method signature="takescreenShot()[pri:9, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:13 IST" name="takescreenShot" finished-at="2025-11-05T10:09:14 IST" duration-ms="768" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takescreenShot -->
-        <test-method signature="controllerEnable1()[pri:10, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:14 IST" name="controllerEnable1" finished-at="2025-11-05T10:09:16 IST" duration-ms="2261" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- controllerEnable1 -->
-        <test-method signature="videoplayerscreenbaackbtn()[pri:11, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:16 IST" name="videoplayerscreenbaackbtn" finished-at="2025-11-05T10:09:18 IST" duration-ms="1639" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- videoplayerscreenbaackbtn -->
-        <test-method signature="clickDocumentBackbtn()[pri:12, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:18 IST" name="clickDocumentBackbtn" finished-at="2025-11-05T10:09:19 IST" duration-ms="1591" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clickDocumentBackbtn -->
-        <test-method signature="handleRatingOrNotification()[pri:13, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:19 IST" name="handleRatingOrNotification" finished-at="2025-11-05T10:09:21 IST" duration-ms="1915" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- handleRatingOrNotification -->
-        <test-method signature="clicknotificationPermission()[pri:14, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:21 IST" name="clicknotificationPermission" finished-at="2025-11-05T10:09:25 IST" duration-ms="3820" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clicknotificationPermission -->
-        <test-method signature="allowNotificationPermission()[pri:15, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:25 IST" name="allowNotificationPermission" finished-at="2025-11-05T10:09:36 IST" duration-ms="10754" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- allowNotificationPermission -->
-        <test-method signature="profile()[pri:16, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:36 IST" name="profile" finished-at="2025-11-05T10:09:37 IST" duration-ms="1736" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- profile -->
-        <test-method signature="Setting()[pri:17, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:37 IST" name="Setting" finished-at="2025-11-05T10:09:43 IST" duration-ms="5699" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setting -->
-        <test-method signature="pressBack()[pri:18, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:43 IST" name="pressBack" finished-at="2025-11-05T10:09:48 IST" duration-ms="4975" status="PASS">
+        </test-method> <!-- AllFileAccess -->
+        <test-method signature="pressBack()[pri:4, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:33 IST" name="pressBack" finished-at="2025-11-07T21:11:34 IST" duration-ms="1474" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pressBack -->
-        <test-method signature="Exitbtn()[pri:19, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:48 IST" name="Exitbtn" finished-at="2025-11-05T10:09:48 IST" duration-ms="308" status="PASS">
+        <test-method signature="PermissionScreen()[pri:5, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:34 IST" name="PermissionScreen" finished-at="2025-11-07T21:11:37 IST" duration-ms="3217" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Exitbtn -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.BaseClass@367ffa75]" started-at="2025-11-05T10:09:48 IST" name="teardown" finished-at="2025-11-05T10:09:48 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- PermissionScreen -->
+        <test-method signature="Notification()[pri:6, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:37 IST" name="Notification" finished-at="2025-11-07T21:11:39 IST" duration-ms="1884" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Notification -->
+        <test-method signature="Cleanertab()[pri:7, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:39 IST" name="Cleanertab" finished-at="2025-11-07T21:11:41 IST" duration-ms="1855" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Cleanertab -->
+        <test-method signature="CleanupFlow()[pri:8, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:41 IST" name="CleanupFlow" finished-at="2025-11-07T21:11:54 IST" duration-ms="12909" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CleanupFlow -->
+        <test-method signature="Duplicatefile()[pri:9, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:54 IST" name="Duplicatefile" finished-at="2025-11-07T21:11:54 IST" duration-ms="390" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Duplicatefile -->
+        <test-method signature="Photo()[pri:10, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:54 IST" name="Photo" finished-at="2025-11-07T21:11:56 IST" duration-ms="1491" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Photo -->
+        <test-method signature="Photoviweall()[pri:11, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:56 IST" name="Photoviweall" finished-at="2025-11-07T21:11:58 IST" duration-ms="2602" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Photoviweall -->
+        <test-method signature="Photoseleteall()[pri:12, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:58 IST" name="Photoseleteall" finished-at="2025-11-07T21:11:59 IST" duration-ms="1030" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Photoseleteall -->
+        <test-method signature="Deleteduplicate()[pri:13, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:11:59 IST" name="Deleteduplicate" finished-at="2025-11-07T21:12:01 IST" duration-ms="1335" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Deleteduplicate -->
+        <test-method signature="Movetotrash()[pri:14, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:12:01 IST" name="Movetotrash" finished-at="2025-11-07T21:12:02 IST" duration-ms="1362" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Movetotrash -->
+        <test-method signature="Afterdelete()[pri:15, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:12:02 IST" name="Afterdelete" finished-at="2025-11-07T21:12:04 IST" duration-ms="1612" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Afterdelete -->
+        <test-method signature="pressBack1()[pri:16, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:12:04 IST" name="pressBack1" finished-at="2025-11-07T21:12:11 IST" duration-ms="7096" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pressBack1 -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.FileManager@1c1bbc4e]" started-at="2025-11-07T21:12:11 IST" name="teardown" finished-at="2025-11-07T21:12:11 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- tests.BaseClass -->
+      </class> <!-- tests.FileManager -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

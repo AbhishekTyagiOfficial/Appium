@@ -22,6 +22,10 @@ public class openFIleManager {
 		//CleanerModule cm = new CleanerModule(driver);
 		CleanerModule.driver = driver;
 		AndroidSystemButtons asb = new AndroidSystemButtons(driver);
+		asb.chaliyeSuruKarteHaiSound();
+		CleanerModule.AllowBtn();
+		CleanerModule.AllFileAccess();
+		asb.pressBack();
 		CleanerModule.PermissionScreen();
 		CleanerModule.Notification();
 		CleanerModule.Cleanertab();
@@ -33,8 +37,11 @@ public class openFIleManager {
 		CleanerModule.Deleteduplicate();
 		CleanerModule.Movetotrash();
 		CleanerModule.Afterdelete();
-		for (int i=1; i<=6; i++) {			
+		for (int i=1; i<=6; i++) {
 			asb.pressBack();
+			if(i==4) {
+				asb.khtamSound();
+			}
 			System.out.print(+ i);
 			Thread.sleep(1000);
 		}

@@ -1,39 +1,99 @@
-package com.FileManager;
+package tests;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 
-public class CleanerModule {
-
+public class FileManager {
 	static AndroidDriver driver;
 	
-	 // Constructor
-    public CleanerModule(AndroidDriver driver) {
-        this.driver = driver;
-    }
-    
-    public static void AllowBtn() {
+	@BeforeTest
+	public static void setup() {
+		DesiredCapabilities fm = new DesiredCapabilities();
+
+		fm.setCapability("appium:deviceName", "ffac23575ec0");
+		fm.setCapability("appium:platformName", "Android");
+		fm.setCapability("appium:platformVersion", "15");
+		fm.setCapability("appium:appPackage", "filemanager.files.fileexplorer.android.folder");
+		fm.setCapability("appium:appActivity",
+				"com.simplemobiletools.filemanager.pro.activities.FileManagerMainActivity");
+		fm.setCapability("appium:automationName", "UiAutomator2");
+		fm.setCapability("appium:onReset", false);
+
 		try {
-			//for (int i = 1; i <= 3; i++) {
+			URL url = new URL("http://127.0.0.1:4723");
+			driver = new AndroidDriver(url, fm);
+			System.out.println("File Manager Started...");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test(priority =1)
+	public void chaliyeSuruKarteHaiSound() {
+		try {
+			File soundFile = new File("src/test/resources/sounds/chaliye-shuru-karte-hai.wav");
+			if (!soundFile.exists()) {
+				System.out.println("⚠️ Sound file not found at: " + soundFile.getAbsolutePath());
+				return;
+			}
+			AudioInputStream audioStream2 = AudioSystem.getAudioInputStream(soundFile);
+			Clip clip =  AudioSystem.getClip();
+			clip.open(audioStream2);
+			clip.start();
+			System.out.println("🔊 Sound Played Successfully!");
+			
+			Thread.sleep(clip.getMicrosecondLength() / 1000);
+			
+			clip.close();
+			audioStream2.close();
+			
+		} catch (UnsupportedAudioFileException e) {
+			System.out.println("❌ Unsupported file type! Please use a .wav file.");
+		} catch (IOException | LineUnavailableException |InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test(priority =2)
+	public static void AllowBtn() {
+		try {
+			
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 				WebElement AllowBtn = wait.until(ExpectedConditions
 						.elementToBeClickable(By.xpath("//android.widget.Button[@resource-id=\"filemanager.files.fileexplorer.android.folder:id/allow_tag\"]")));
 				AllowBtn.click();
-				System.out.println("Permission Button Clicked !" );
-			//}
+				System.out.println("Permission Button Clicked !");
+			
 		} catch (Exception e) {
 			System.out.println("Permission Button Not Clicked !");
 			e.printStackTrace();
 		}
 	}
 
+	@Test(priority =3)
     public static void AllFileAccess() {
 		try {
 			//for (int i = 1; i <= 3; i++) {
@@ -41,14 +101,22 @@ public class CleanerModule {
 				WebElement afa = wait.until(ExpectedConditions
 						.elementToBeClickable(By.xpath("//android.widget.Switch[@resource-id=\"com.android.settings:id/switchWidget\"]")));
 				afa.click();
-				System.out.println("Permission Button Clicked !" );
+				System.out.println("Permission Button Clicked !");
 			//}
 		} catch (Exception e) {
 			System.out.println("Permission Button Not Clicked !");
 			e.printStackTrace();
 		}
 	}
+    
+	@Test(priority =4)
+ // 🔙 Back Button	
+ 	public  void pressBack() {
+ 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+ 		System.out.println("Back Press Clicked!");
+ 	}
 	
+	@Test(priority =5)
 	public static void PermissionScreen() {
 		try {
 			for (int i = 1; i <= 3; i++) {
@@ -64,14 +132,17 @@ public class CleanerModule {
 		}
 	}
 
+	@Test(priority =6)
 	public static void Notification() {
 
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			WebElement allownotification = wait.until(ExpectedConditions
 					.elementToBeClickable(By.id("com.android.permissioncontroller:id/permission_allow_button")));
-			allownotification.click();
-			System.out.println("Notification Clicked !");
+			if (allownotification.isDisplayed()) {
+				allownotification.click();
+				System.out.println("Notification Clicked !");
+			}
 
 		} catch (Exception e) {
 			System.out.println("Notification not visible OR not Clicked !");
@@ -79,6 +150,7 @@ public class CleanerModule {
 		}
 	}
 
+	@Test(priority =7)
 	public static void Cleanertab() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -92,6 +164,7 @@ public class CleanerModule {
 		}
 	}
 
+	@Test(priority =8)
 	public static void CleanupFlow() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
@@ -119,6 +192,7 @@ public class CleanerModule {
 		}
 	}
 
+	@Test(priority =9)
 	public static void Duplicatefile() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
@@ -132,6 +206,7 @@ public class CleanerModule {
 		}
 	}
 
+	@Test(priority =10)
 	public static void Photo() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -145,6 +220,7 @@ public class CleanerModule {
 		}
 	}
 
+	@Test(priority =11)
 	public static void Photoviweall() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -158,6 +234,7 @@ public class CleanerModule {
 		}
 	}
 
+	@Test(priority =12)
 	public static void Photoseleteall() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -170,6 +247,8 @@ public class CleanerModule {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test(priority =13)
 	public static void Deleteduplicate() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -182,6 +261,8 @@ public class CleanerModule {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test(priority =14)
 	public static void Movetotrash() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -195,6 +276,7 @@ public class CleanerModule {
 		}
 	}
 
+	@Test(priority =15)
 	public static void Afterdelete() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -206,6 +288,25 @@ public class CleanerModule {
 			System.out.println("Afterdelete not Clicked !");
 			e.printStackTrace();
 		}
+	}
+	
+	@Test(priority =16)
+	// 🔙 Back Button	
+		public  void pressBack1() throws InterruptedException {
+			for (int j=1; j<=6; j++) {
+				if(j==4) {
+					
+					driver.pressKey(new KeyEvent(AndroidKey.BACK));
+				}
+				System.out.println("Back Press Clicked!" + j);
+				Thread.sleep(1000);
+			}
+			
+		}
+	
+	@AfterTest
+	public static void teardown() {
+		
 	}
 
 }

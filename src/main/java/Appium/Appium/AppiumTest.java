@@ -111,7 +111,7 @@ public class AppiumTest {
 				Thread.sleep(500);
 			}
 			
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     		WebElement updatesheet = wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.id("com.rocks.music.videoplayer:id/crossSheet")));
     		
     		if (updatesheet.isDisplayed()) {

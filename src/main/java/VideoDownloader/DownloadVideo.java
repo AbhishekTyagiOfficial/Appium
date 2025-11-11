@@ -23,28 +23,29 @@ public class DownloadVideo {
 		dv.permission();
 		dv.permissionAllow();
 		dv.updateBottomSheet();
-//		dv.fbWatch();
-//		dv.fbWatchbottomSheet();
-//		dv.vdownload();
-		dv.facebook();
-		dv.openBrowser();
-		dv.openBrowserbottomsheet();
-		dv.fblogin();
-		dv.saveInfo();
+		dv.fbWatch();
+		dv.fbWatchbottomSheet();
+		dv.vdownload();
+//		dv.facebook();
+//		dv.openBrowser();
+//		dv.openBrowserbottomsheet();
+//		dv.fblogin();
+//		dv.saveInfo();
 	}	
 	public static void openVD() {
 		DesiredCapabilities dc = new DesiredCapabilities();
 		
 		dc.setCapability("platformName", "Android");
-		dc.setCapability("appium:platformVersion", "15");
-		dc.setCapability("appium:deviceName", "ffac23575ec0");
+		dc.setCapability("appium:platformVersion", "13");
+//		dc.setCapability("appium:deviceName", "ffac23575ec0");
+		dc.setCapability("appium:deviceName", "abd82d17");
 		//dc.setCapability("appium:deviceName", "JBDQSOO7FQXWHY7L");
 		dc.setCapability("appium:appPackage", "com.rocks.video.downloader");
 		dc.setCapability("appium:appActivity", "com.rocks.video.downloader.MainBrowserActivity");
 		dc.setCapability("appium:automationName", "UiAutomator2");
-		dc.setCapability("appium:noReset", false);
-		dc.setCapability("appium:ignoreHiddenApiPolicyError", true);
-		dc.setCapability("appium:skipServerInstallation", true);
+//		dc.setCapability("appium:noReset", false);
+//		dc.setCapability("appium:ignoreHiddenApiPolicyError", true);
+//		dc.setCapability("appium:skipServerInstallation", true);
 
 		
 		try {
@@ -66,7 +67,7 @@ public class DownloadVideo {
 				allowbtn.click();
 				System.out.println("Permission Clicked!");
 			}else {
-				facebook();
+				//facebook();
 			}
 			
 		}catch (Exception e) {
@@ -78,13 +79,13 @@ public class DownloadVideo {
 	public void permissionAllow() {
 		try {
 			//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-			WebElement clickallowbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.id("com.android.permissioncontroller:id/permission_allow_all_button")));
+			WebElement clickallowbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.id("com.android.permissioncontroller:id/permission_allow_button")));
 			if(clickallowbtn.isDisplayed())
 			{
 				clickallowbtn.click();
 				System.out.println("Permission Allow btn Clicked!");
-			}else {
-				facebook();
+			}else {	
+				//facebook();
 			}
 			
 		}catch (Exception e) {
@@ -101,7 +102,7 @@ public class DownloadVideo {
 				ubs.click();
 				System.out.println("UBS Clicked!");
 			}else {
-				facebook();
+				//facebook();
 			}
 		}catch (Exception e) {
 			System.out.println("UBS Not visible & Clicked!");
